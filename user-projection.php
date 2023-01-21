@@ -1,0 +1,78 @@
+<?php
+    session_start();
+    require 'connect.php';
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    
+    <title>Payroll Management System</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <?php include('message.php'); ?>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Employee Details
+                            <a href="user-create.php" class="btn btn-primary float-end">Add Employees</a>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <a href="user-selectage.php?id=<?= $employee['id']; ?>" class="btn btn-info btn-sm">Select AGE</a>&nbsp;
+                                    <a href="user-projection.php?id=<?= $employee['id']; ?>" class="btn btn-info btn-sm">Display Addresses</a>&nbsp;
+                                    <a href="user-agg.php?id=<?= $employee['id']; ?>" class="btn btn-info btn-sm">Display Senior-most Employee</a>&nbsp;
+                                    <a href="user-division.php?id=<?= $employee['id']; ?>" class="btn btn-info btn-sm">Display all Employees that worked on all projects</a>
+
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                    $query = "SELECT address FROM employee";
+                                    $query_run = mysqli_query($con, $query);
+
+                                    if(mysqli_num_rows($query_run) > 0)
+                                    {
+                                        foreach($query_run as $employee)
+                                        {
+                                            ?>
+                                            <tr>
+                                                
+                                                <td><?= $employee['address']; ?></td>
+                                        
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    else
+                                    {
+                                        echo "<h5> No Record Found </h5>";
+                                    }
+                                ?>
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
