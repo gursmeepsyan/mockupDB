@@ -8,7 +8,7 @@ The different classes of users of the system are the employee and the managers/H
 
 To implement this application into a GUI , we used the instructions given by the professor about MySQL and PHP platforms using phpadmin software. We were able to mimic UI pages such as Login, Home page , Project info page etc. to help the user get a brief hint of how the system works. We also created a database with all the populated tables of info regarding out schema. The biggest accomplishment from our application is that we were able to see how to create a working application which can be applied to any number of small/large businesses to help keep track of the employee info and send out pay checks as per the working hours of the employees. 
 
-The change in our schema from when we started was quite significant. We added 3 new entities which in turn had 7 new relationships created and 4 of these relationships were many-to-one. We also had to edit the primary and foreign keys for some of the tables to get the information meaningfully across and be able to populate the sql part of the application. 
+ 
 
 Below are the screenshots of the queries we applied and how they changed the data before and after their application. 
 
